@@ -19,7 +19,7 @@ const MyBids = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:3000/api/user/my-bids", {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/my-bids`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

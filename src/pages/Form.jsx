@@ -27,7 +27,7 @@ const SignupPage = () => {
       try {
         console.log(formData);
 
-        const response = await axios.post("http://localhost:3000/api/register", formData,{
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/register`, formData,{
           headers: { "Content-Type": "application/json" }
        
       });

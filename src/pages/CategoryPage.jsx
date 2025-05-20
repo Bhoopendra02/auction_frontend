@@ -17,7 +17,7 @@ function CategoryPage() {
   useEffect(() => {
     const fetchCategoryItems = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/category/${categoryName}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/category/${categoryName}`);
         if (res.data && res.data.items) {
           setItems(res.data.items);
         } else {

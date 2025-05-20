@@ -12,7 +12,7 @@ const ItemTable = () => {
       setLoading(true);
      const token = localStorage.getItem("token"); // get token from local storage
 
-    const response = await axios.get("http://localhost:3000/api/admin/pending", {
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/pending`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -42,7 +42,7 @@ const ItemTable = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
-      axios.delete(`http://localhost:3000/api/delete/${id}`)
+      axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/delete/${id}`)
         .then(() => {
           setItems(items.filter(item => item._id !== id));
           alert("Item deleted");

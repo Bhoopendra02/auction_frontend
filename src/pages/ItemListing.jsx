@@ -16,7 +16,7 @@ const ApprovedItems = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/approved");
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/approved`);
         console.log("API Response:", response.data);
         console.log("First Item Structure:", response.data.items?.[0]);
         

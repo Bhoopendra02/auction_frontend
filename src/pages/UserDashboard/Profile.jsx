@@ -26,7 +26,7 @@ const Profile = () => {
   const fetchUserProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/api/user/profile', {
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/profile`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -56,7 +56,7 @@ const Profile = () => {
 
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.post('http://localhost:3000/api/user/upload-image', formData, {
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user/upload-image`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data'
@@ -77,7 +77,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.put('http://localhost:3000/api/user/profile', user, {
+      await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/user/profile`, user, {
         headers: {
           Authorization: `Bearer ${token}`
         }

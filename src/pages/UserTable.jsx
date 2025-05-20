@@ -6,7 +6,7 @@ const UserTable = () => {
     const [data, setdata] =useState([])
 
     useEffect(()=>{
-         axios.get('http://localhost:3000/api/getAll')
+         axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/getAll`)
          .then((res)=>{
             console.log(res);
             setdata(res.data.users)

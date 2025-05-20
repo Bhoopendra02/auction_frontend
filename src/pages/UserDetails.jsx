@@ -12,7 +12,7 @@ useEffect(()=>{
     const fetchData= async()=>{
       console.log("id:", id);
 
-     const response= await axios.get(`http://localhost:3000/api/UserById/${id}`)
+     const response= await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/UserById/${id}`)
       console.log(response.data)
        setdata(response.data)
      }

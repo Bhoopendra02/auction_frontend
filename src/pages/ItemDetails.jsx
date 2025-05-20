@@ -19,7 +19,7 @@ const ItemDetails = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/${id}`);
         if (response.data && response.data.success) {
           setItem(response.data.item);
           setRecentBids(response.data.item.bids || []);
@@ -40,7 +40,7 @@ const ItemDetails = () => {
     try {
         const token = localStorage.getItem("token"); // get token from local storage
 
-    const response = await axios.put(`http://localhost:3000/api/admin/approve/${id}`, 
+    const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/admin/approve/${id}`, 
   {
         status: "approved",
         approvedAt: new Date(),
@@ -64,7 +64,7 @@ const ItemDetails = () => {
   const token = localStorage.getItem("token");
 
   const response = await axios.put(
-    `http://localhost:3000/api/admin/reject/${id}`,
+    `${import.meta.env.VITE_BACKEND_URL}/api/admin/reject/${id}`,
     {
       status: "rejected",
       rejectedAt: new Date(),
@@ -117,7 +117,7 @@ const ItemDetails = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/${id}/bid`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/${id}/bid`,
         { amount: bidAmountNum },
         {
           headers: {

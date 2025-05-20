@@ -18,7 +18,7 @@ function LoginPage() {
     setError(""); // Clear previous error
 
     try {
-      const res = await axios.post("http://localhost:3000/api/userlogin", data);
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/userlogin`, data);
 
       if (res.data.success) {
         // Store token and user info in localStorage

@@ -10,7 +10,7 @@ const Explore = () => {
   useEffect(() => {
     const fetchAuctions = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/approved');
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/approved`);
         console.log(response.data);
         // Check if response.data and response.data.item exist
         if (response.data && Array.isArray(response.data.items)) {

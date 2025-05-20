@@ -103,7 +103,7 @@ const CreateAuction = () => {
         data.append("image", imageFile);
       }
 
-      await axios.post("http://localhost:3000/api/auctions/create", data, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auctions/create`, data, {
         headers: { 
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`

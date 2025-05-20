@@ -15,7 +15,7 @@ const MyAuctions = () => {
   const fetchAuctions = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/api/seller/my-items', {
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/seller/my-items`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -44,7 +44,7 @@ const MyAuctions = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:3000/api/auctions/${auctionId}`, {
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/auctions/${auctionId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
